@@ -9,5 +9,6 @@ while (usr.next()) {
   var r  = new SNC.Regex('/bad_domain/'); 
   usr.email = r.replaceAll(usr.email, 'new_domain'); 
   usr.update(); 
+  //validando uma alteracao de campo
   //gs.print('NEW EMAIL: ' + usr.email); 
 }
