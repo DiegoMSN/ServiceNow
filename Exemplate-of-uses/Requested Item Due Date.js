@@ -7,6 +7,7 @@ reqItem = new GlideRecord('sc_req_item');
 reqItem.get('2bace2c8dbe12780dca43e0b7c9619cc');
 
 var tod = new GlideDateTime();
+//explicando como efetua a criacao da pipeline
 var leadTime = reqItem.cat_item.delivery_time.getGlideObject();
 var dueDate = new GlideDateTime();
 dueDate.add(leadTime.getNumericValue());
