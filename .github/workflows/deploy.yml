@@ -17,8 +17,8 @@ jobs:
     # if: ${{ github.event_name == 'pull_request'}}
 
     steps:
-      - name: Deploy to Prod
-        uses: ServiceNow/servicenow-devops-change@v1.35.2
+      - name: ServiceNow DevOps Change
+        uses: rapdev-io/sn-devops-change@v2.0.1
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
