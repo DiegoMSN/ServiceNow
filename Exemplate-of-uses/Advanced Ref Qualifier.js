@@ -12,7 +12,8 @@ var TowerUtils = Class.create();
 	initialize: function() { 
 }, 
  
-//returns a comma seperated list of sysIDs based on the users assignment group membership 
+//returns a comma seperated list of sysIDs based on the users assignment group membership
+//becareful when using this application
 getMyTowers:function() { 
 	var user = gs.getUserID(); 
 	var membership = new GlideRecord('sys_user_grmember'); 
