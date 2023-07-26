@@ -18,7 +18,7 @@ function getChangeCutoffDate(d) {
  if (day == 7) {day = 0;}   //if Sunday set to 0 instead of 7 
   gs.print('Change start day of the week is ' + day); 
  
- if (day <= changeCutoffDay ) { 
+ //if (day <= changeCutoffDay ) { 
   return returnDate.getInternalMidnight(changeCutoffDay); 
  } 
  
