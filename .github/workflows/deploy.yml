@@ -17,7 +17,7 @@ jobs:
     # if: ${{ github.event_name == 'pull_request'}}
 
     steps:
-      - name: ServiceNow DevOps Change Automation
+      - name: Deploy to Prod
         uses: ServiceNow/servicenow-devops-change@v1.35.2
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
