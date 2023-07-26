@@ -12,7 +12,7 @@ log.info('DEBUG splitting ' + target.u_assoc_products_sold);
 ps = target.u_assoc_products_sold.split(','); 
  
 //Cycle thru the products sold and create a a 'covered' record for each one 
-for (var i=0; i < ps.length; i++) { 
+//for (var i=0; i < ps.length; i++) { 
  //Get the current Product Sold 
  //log.info('DEBUG Line ' + source.u_forign_id + ':  processing for Product Sold ' + ps[i]); 
  var grProductSold = new GlideRecord('u_products_sold'); 
