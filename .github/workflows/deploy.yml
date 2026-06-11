@@ -1,4 +1,5 @@
 name: deploy
+
 on:
   pull_request:
   push:
@@ -6,18 +7,28 @@ on:
       - master
 
 jobs:
+  Build:
+    runs-on: ubuntu-latest
+    name: 'Build'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Adicione aqui os steps reais de build/deploy da sua aplicação
+
   ServiceNowDevOpsChange:
     runs-on: ubuntu-latest
     name: 'ServiceNow DevOps Change'
+    needs: Build
     steps:
       - name: ServiceNow Change
         uses: ServiceNow/servicenow-devops-change@v5.1.0
         with:
-          devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
+          devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
           instance-url: ${{ secrets.SN_INSTANCE_URL_PROD }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'ServiceNow DevOps Change'
-          change-request: '{"attributes":{"requested_by":{"name": "Test User"},"assignment_group":{"name": "Change Approval Team"},"priority": "2","comments": "This is a sample pipeline script to be added in your change step","work_notes": "Update this to work_notes","start_date": "2023-09-07 11:59:59","end_date": "2023-09-09 11:59:59"}}'
+          change-request: '{"attributes":{"requested_by":{"name": "Test User"},"assignment_group":{"name": "Change Approval Team"},"priority": "2","comments": "This is a sample pipeline script to be added in your change step","work_notes": "Update this to work_notes"}}'
           interval: '100'
           timeout: '3600'
