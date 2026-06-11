@@ -12,6 +12,6 @@ function onChange(control, oldValue, newValue, isLoading, isTemplate) {
  
 function setUrgency(ci) { 
   if (ci.u_bus_criticality != '') { 
-    g_form.setValue('u_change_urgency', ci.u_bus_criticality); 
+    g_form.setValue('u_change_urgency', ci.u_bus_criticality); //callback function
   } 
 }
