@@ -6,26 +6,18 @@ on:
       - master
 
 jobs:
-  build:
-    # Purpose of this job is to Apply Remote Changes for the branch triggering 
-    # the pipeline build to the Dev instance, then publish the application to 
-    # app repo using the template versioning format. 
-    name: Publish from Dev
-    #environment: Test Env
+  ServiceNowDevOpsChange:
     runs-on: ubuntu-latest
-    # Below line can be used to set conditionals for modifying your pipeline as needed.
-    # if: ${{ github.event_name == 'pull_request'}}
-
+    name: 'ServiceNow DevOps Change'
     steps:
-      - name: ServiceNow DevOps Change Automation
-        uses: ServiceNow/servicenow-devops-change@v1.38.0
+      - name: ServiceNow Change
+        uses: ServiceNow/servicenow-devops-change@v5.1.0
         with:
-          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-          devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+          devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
           instance-url: ${{ secrets.SN_INSTANCE_URL_PROD }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
-          job-name: 'ServiceNow DevOps Change Automation'
-          change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'          
+          job-name: 'ServiceNow DevOps Change'
+          change-request: '{"attributes":{"requested_by":{"name": "Test User"},"assignment_group":{"name": "Change Approval Team"},"priority": "2","comments": "This is a sample pipeline script to be added in your change step","work_notes": "Update this to work_notes","start_date": "2023-09-07 11:59:59","end_date": "2023-09-09 11:59:59"}}'
           interval: '100'
           timeout: '3600'
