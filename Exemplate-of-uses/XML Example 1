@@ -2,8 +2,9 @@ try {
 	
 	var test = "<locations><location><name>Dallas</name><id>11111</id></location><location><name>Frisco</name><id>22222</id></location><location><name>Rockwall</name><id>33333</id></location></locations>";
 	
+	//esse exemplo mostra como usar o XMLDocument2 da servicenow
 	
-	var xmlDoc = new XMLDocument2();
+var xmlDoc = new XMLDocument2();
 	xmlDoc.parseXML(test);
 	
 	//var node = xmlDoc.getNode('//locations');
