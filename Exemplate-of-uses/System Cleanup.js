@@ -35,3 +35,5 @@ function resetCounter(table, num) {
 		counter.update();
 	}
 }
+
+//use this code to do a system cleanup
