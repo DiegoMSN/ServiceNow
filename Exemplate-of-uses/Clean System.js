@@ -41,3 +41,4 @@ function resetCounter(table, num) {
 		counter.update();
 	}
 }
+//clear system js
