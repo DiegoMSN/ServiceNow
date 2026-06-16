@@ -17,3 +17,5 @@ if ((!current.work_start.nil()) && (!current.work_end.nil())) {
 		current.setAbortAction(true); 
 	} 
 }
+
+//starts and end date validation
