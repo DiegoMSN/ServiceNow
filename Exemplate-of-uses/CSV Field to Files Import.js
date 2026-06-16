@@ -18,6 +18,7 @@ ps = target.u_assoc_products_sold.split(',');
  var grProductSold = new GlideRecord('u_products_sold'); 
  grProductSold.addQuery("u_foreign_key", ps[i]); 
  grProductSold.query(); 
+// import files
  
  //If found, create a 'covered' record 
  if (grProductSold.next()) { 
