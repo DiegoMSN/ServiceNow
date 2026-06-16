@@ -29,6 +29,6 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'ServiceNow DevOps Change'
-          change-request: '{"attributes":{"requested_by":{"name": "DIEGO Matias De Souza Nunes"},"assignment_group":{"name": "TI - Gestão de ITSM"},"priority": "2","comments": "This is a sample pipeline script to be added in your change step","work_notes": "Update this to work_notes"}}'
+          change-request: '{"autoCloseChange":true,"attributes":{"requested_by":{"name": "DIEGO Matias De Souza Nunes"},"assignment_group":{"name": "TI - Gestão de ITSM"},"priority": "2","comments": "This is a sample pipeline script to be added in your change step","work_notes": "Update this to work_notes"}}'
           interval: '100'
           timeout: '3600'
